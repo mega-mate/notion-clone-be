@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <Properties>
+        <Property name="layoutPattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} [%X{transactionId}] - %msg%n</Property>
+        <Property name="RtcLogPath">../logs</Property>
+    </Properties>
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <!--			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36}:%M:%L - %msg%n"/>-->
+            <PatternLayout pattern="${layoutPattern}"/>
+        </Console>
+    </appenders>
+
+    <Loggers>
+        <Logger name="com.kt.eduportal.rtcStd.module.RtcModuleService" level="info" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="java.sql" level="info" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="jdbc.sqlonly" level="info" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="jdbc.sqltiming" level="debug" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="jdbc.connection" level="info" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+
+        <Logger name="jdbc.audit" level="debug" additivity="false">
+            <appender-ref ref="console" />
+        </Logger>
+
+        <Logger name="jdbc.resultset" level="debug" additivity="false">
+            <appender-ref ref="console" />
+        </Logger>
+
+        <Logger name="jdbc.resultsettable" level="info" additivity="false">
+            <appender-ref ref="console" />
+        </Logger>
+
+        <!--<logger name="lampLog" level="error" additivity="false">
+            &lt;!&ndash; <appender-ref ref="WroxFileAppender"/> &ndash;&gt;
+            <appender-ref ref="console"/>
+        </logger>-->
+
+        <logger name="com.kt.eduportal.common.util" level="info" additivity="false">
+            <appender-ref ref="console"/>
+        </logger>
+
+        <logger name="com.kt.eduportal.common.util" level="info" additivity="false">
+            <appender-ref ref="console"/>
+        </logger>
+
+        <logger name="org.apache" level="info" additivity="false">
+            <appender-ref ref="console"/>
+        </logger>
+
+        <!-- 		<Logger name="org.springframework" level="info" additivity="false">
+                    <AppenderRef ref="console" />
+                </Logger>  -->
+
+        <root level="info">
+            <appender-ref ref="console"/>
+        </root>
+    </Loggers>
+
+</Configuration>
